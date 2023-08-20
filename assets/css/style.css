@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: white;
+}
+
+body{
+    font-family: 'Comfortaa', cursive;
+    color: black;  
+}
+
+.pizarra{
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 400px;
+    background-color: rgb(97, 96, 96);
+}
+
+.container{
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 50vh;
+    background-color: rgb(37, 36, 36);
+}
+
+input{
+    width: 200px;
+}
+
+.titulo{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom-color: black;
+    border-top-color: black;
+}
+
+.moneda{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
