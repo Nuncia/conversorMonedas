@@ -1,0 +1,80 @@
+const input = document.getElementById('inputMonedas');
+const boton = document.getElementById('boton');
+const selectPadre = document.getElementById('select');
+const graficoDOM = document.getElementById('grafico');
+const texto = document.getElementById('texto');
+const montoMoneda = 0;
+let listaMonedas = [];
+
+// Obteniendo datos desde la API
+const obteniendoDatosMonedas = async () => {
+    try {
+        const endPoint =  'https://mindicador.cl/api/';
+        const res = await fetch(endPoint);
+        const data = await res.json();
+        return data;
+    } catch (error) {
+        texto.textContent = `<h2>Algo salio mal: ${error}</h2>`
+    }
+};
+// Cargando datos para el select
+const cargarDatos = (monedas) => {
+    let html = '';
+    monedas.forEach(moneda => {
+        html += `<option value="${moneda.identificador}">${moneda.nombre}</option>`
+    })
+    selectPadre.innerHTML = html;
+}
+// Preparando configuracion para la grafica
+const preparandoDatos = (tipoCambio) => {
+    const labels = Object.keys(tipoCambio);
+    for(let i=0; i<labels.length; i++){
+        const objeto = tipoCambio[labels[i]];
+        if(objeto.codigo){
+            const idMoneda = objeto.codigo;
+            const descripcion = objeto.nombre;
+            const valor = objeto.valor;
+            listaMonedas.push(
+                {
+                    identificador: idMoneda,
+                    nombre: descripcion,
+                    valor: valor
+                }
+            );
+        }
+    }console.log(listaMonedas)
+    cargarDatos(listaMonedas);
+    const titulo = 'Grafico Convertidor Monedas';
+    const tipoGrafico = 'line';
+    const colorLinea = 'red';
+    const etiquetas = listaMonedas.map((moneda) => moneda.nombre);
+    const valores = listaMonedas.map((moneda) => moneda.valor);
+
+    const config = {
+        type: tipoGrafico,
+        data: {
+            labels: etiquetas,
+            datasets: [
+                {
+                    label: titulo,
+                    backgroundColor: colorLinea,
+                    data: valores
+                }
+            ]
+        }
+    }
+    return config;
+};
+
+// const calculaTotal = 
+
+const prueba = async () => {
+    const datos = await obteniendoDatosMonedas();
+    const datosMonedas = preparandoDatos(datos);
+    console.log(datosMonedas)
+    new Chart(graficoDOM,datosMonedas)
+}
+
+// boton.addEventListener('click', calculaTotal());
+
+prueba();
