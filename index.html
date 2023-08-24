@@ -12,29 +12,33 @@
     <title>Conversor de Monedas</title>
 </head>
 <body>
-    <div class="container d-flex flex-column">
+    <div class="container">
         <div class="titulo">
             <h2>Conversor de monedas Nacional</h2>
         </div>
         <div>
             <div class="pizarra">
-                <h5>Pesos CLP</h5>
-                <input id="inputMonedas" type="number">
+                <h5 class="mt-3">Pesos CLP</h5>
+                <input id="inputMonedas" type="number" min="1">
                 <div class="moneda">
-                    <p>Moneda a convertir:</p>
+                    <p class="mb-0">Moneda a convertir:</p>
                     <select class="form-select" id="select" aria-label="Default select example">
                         <option selected>Seleccionar moneda</option>
                     </select>
                     <button type="button" class="btn btn-primary boton" id="boton">Buscar</button>
-                    <div id="texto"></div>
-                    <p id="monedaConvertida"></p>
+                    <div class="mt-3">
+                        <p>
+                            <span id="monedaConvertida"></span>
+                        </p>
+                    </div>
+                    <p id="texto"></p>
                 </div>
             </div>
         </div>
-        <div >
+        <div class="padreGrafico">
             <canvas id="grafico"></canvas>
         </div>
     </div>
-    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/main.js"></script>
 </body>
 </html>

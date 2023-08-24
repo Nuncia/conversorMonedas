@@ -6,21 +6,25 @@
 
 body{
     font-family: 'Comfortaa', cursive;
-    color: black;  
+    color: black; 
+    background-color: rgb(37, 36, 36);
 }
 
 .pizarra{
+    margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
     display: flex;
     align-items: center;
     flex-direction: column;
-    width: 400px;
+    width: 328px;
     background-color: rgb(97, 96, 96);
     color: white;
 }
 
 .container{
+    display: flex;
+    flex-direction: column;
     margin-left: auto;
     margin-right: auto;
     min-height: 50vh;
@@ -29,14 +33,14 @@ body{
 }
 
 input{
-    width: 200px;
+    width: 190px;
 }
 
 .titulo{
     padding-top: 10px;
     padding-bottom: 10px;
-    border-bottom-color: black;
-    border-top-color: black;
+    border: rgb(60, 61, 74);
+
 }
 
 .moneda{
@@ -48,4 +52,31 @@ input{
 
 #monedaConvertida{
     font-size: 24px;
+}
+
+#inputMonedas{
+    margin-bottom: 23px;
+}
+
+.boton{
+    margin-top: 20px;
+    width: 190px;
+}
+
+.padreGrafico{
+    width: 700px;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    visibility: hidden;
+    background-color: white;
+}
+
+.grafico{
+    width: 400px;
+}
+
+.resultado{
+    margin-top: 27px;
+    font-size: 19px;
 }
